@@ -16,12 +16,12 @@ namespace OfType
 
         public IEnumerable<TOutput> GetOfType<TSource, TOutput>(IEnumerable<TSource> enumerable)
         {
-            throw new NotImplementedException();
+            return enumerable.OfType<TOutput>();
         }
 
         public IEnumerable<TBase> OfBase<TBase, TDerived>(IEnumerable<TDerived> derivedItems) where TDerived : TBase
         {
-            throw new NotImplementedException();
+            return derivedItems.OfType<TBase>();
         }
     }
 }
