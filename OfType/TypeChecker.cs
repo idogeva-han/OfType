@@ -11,17 +11,44 @@ namespace OfType
     {
         public IEnumerable<T> GetOfType<T>(IEnumerable enumerable)
         {
-            return enumerable.OfType<T>();
+            List<T> list = new List<T>();
+            foreach (var item in enumerable)
+            {
+                if (item is T genericItem)
+                {
+                    list.Add(genericItem);
+                }
+            }
+
+            return list;
         }
 
         public IEnumerable<TOutput> GetOfType<TSource, TOutput>(IEnumerable<TSource> enumerable)
         {
-            return enumerable.OfType<TOutput>();
+            List<TOutput> list = new List<TOutput>();
+            foreach (var item in enumerable)
+            {
+                if (item is TOutput genericItem)
+                {
+                    list.Add(genericItem);
+                }
+            }
+
+            return list;
         }
 
         public IEnumerable<TBase> OfBase<TBase, TDerived>(IEnumerable<TDerived> derivedItems) where TDerived : TBase
         {
-            return derivedItems.OfType<TBase>();
+            List<TBase> list = new List<TBase>();
+            foreach (var item in derivedItems)
+            {
+                if (item is TBase genericItem)
+                {
+                    list.Add(genericItem);
+                }
+            }
+
+            return list;
         }
     }
 }
