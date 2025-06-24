@@ -25,27 +25,16 @@ namespace OfType
 
         public IEnumerable<TOutput> GetOfType<TSource, TOutput>(IEnumerable<TSource> enumerable)
         {
-            List<TOutput> list = new List<TOutput>();
-            foreach (var item in enumerable)
-            {
-                if (item is TOutput genericItem)
-                {
-                    list.Add(genericItem);
-                }
-            }
 
-            return list;
+            return GetOfType<TOutput>(enumerable);
         }
 
         public IEnumerable<TBase> OfBase<TBase, TDerived>(IEnumerable<TDerived> derivedItems) where TDerived : TBase
         {
             List<TBase> list = new List<TBase>();
-            foreach (var item in derivedItems)
+            foreach (var derivedItem in derivedItems)
             {
-                if (item is TBase genericItem)
-                {
-                    list.Add(genericItem);
-                }
+                list.Add(derivedItem);
             }
 
             return list;
